@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+.pytest_cache/
+.venv/
+*.log
+node_modules/
+.next/
+market-api/target/
+.maven-repository/
+model-api/artifacts/*.joblib
+!model-api/artifacts/model.joblib
+**/AGENTS.md
+/codex_assessment_prompt.md
+*.tsbuildinfo

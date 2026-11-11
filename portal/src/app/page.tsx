@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function Home(){return <main className="wrap"><div className="eyebrow">Interview assessment</div><section className="hero"><div><h1>Housing price assessment</h1><p>Property estimates and market data.</p></div></section><div className="grid"><article className="card"><h2>Value estimate</h2><Link href="/estimator" className="btn">Open estimator</Link></article><article className="card"><h2>Market data</h2><Link href="/market" className="btn secondary">View market</Link></article></div></main>}

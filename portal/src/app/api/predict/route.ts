@@ -1,0 +1,2 @@
+import { NextResponse } from 'next/server';
+export async function POST(request:Request){try{const body=await request.json();const upstream=await fetch(`${process.env.MODEL_API_URL||'http://localhost:8000'}/predict`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body),cache:'no-store'});const payload=await upstream.json();return NextResponse.json(payload,{status:upstream.status});}catch{return NextResponse.json({detail:'Prediction service is unavailable. Check MODEL_API_URL and service health.'},{status:502});}}

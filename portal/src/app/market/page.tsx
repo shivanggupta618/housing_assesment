@@ -1,0 +1,3 @@
+import Market from './ui';
+import type { Summary } from '@/lib/types';
+export default async function MarketPage(){let initial:Summary|null=null;try{const r=await fetch(`${process.env.MARKET_API_URL||'http://localhost:8081'}/api/market/summary`,{cache:'no-store'});if(r.ok)initial=await r.json()}catch{}return <main className="wrap"><div className="eyebrow">Market data</div><section className="hero"><div><h1>Market overview</h1><p>Review property records, price summaries and estimates.</p></div><div className="tag">{initial?`${initial.count} records`:'Market data unavailable'}</div></section><Market initial={initial}/></main>}

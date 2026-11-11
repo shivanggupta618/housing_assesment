@@ -1,0 +1,6 @@
+server:
+  port: ${PORT:8081}
+app:
+  data-file: ${HOUSING_DATA_FILE:../training_data.csv}
+  ml-url: ${ML_API_URL:http://localhost:8000}
+  allowed-origin: ${PORTAL_ORIGIN:http://localhost:3000}
