@@ -13,12 +13,9 @@ services:
       timeout: 4s
       retries: 5
   market-api:
-    image: maven:3.9-eclipse-temurin-21
-    working_dir: /workspace
-    volumes:
-      - ./market-api:/workspace
-      - ./training_data.csv:/data/training_data.csv:ro
-    command: mvn spring-boot:run
+    build:
+      context: .
+      dockerfile: market-api/Dockerfile
     environment:
       HOUSING_DATA_FILE: /data/training_data.csv
       ML_API_URL: http://model-api:8000
@@ -35,4 +32,8 @@ services:
       MODEL_API_URL: http://model-api:8000
       MARKET_API_URL: http://market-api:8081
     ports: ["3000:3000"]
-    depends_on: [model-api, market-api]
+    depends_on:
+      model-api:
+        condition: service_healthy
+      market-api:
+        condition: service_healthy

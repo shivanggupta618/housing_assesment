@@ -7,4 +7,8 @@
 **/__pycache__
 **/.pytest_cache
 **/*.joblib
+**/*.log
+**/*.tsbuildinfo
+**/AGENTS.md
+codex_assessment_prompt.md
 portal/.env*
